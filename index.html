@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grimório da Maga – Portal Vivo</title>
+  <style>
+    :root {
+      --bg-dark: #09070d;
+      --purple-deep: #1a1028;
+      --purple-soft: #2a1840;
+      --gold: #d4af62;
+      --gold-soft: #f1ddb0;
+      --text: #f7f2ff;
+      --muted: #c9bddc;
+      --card: rgba(10, 7, 18, 0.72);
+      --border: rgba(212, 175, 98, 0.32);
+      --whatsapp: #25d366;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      font-family: "Georgia", "Times New Roman", serif;
+      color: var(--text);
+      background: radial-gradient(circle at top, #221532 0%, var(--bg-dark) 45%, #040307 100%);
+      scroll-behavior: smooth;
+    }
+
+    body {
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(9, 7, 13, 0.55), rgba(9, 7, 13, 0.92)),
+        url("https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1600&q=80") center / cover no-repeat;
+      z-index: -2;
+      filter: saturate(0.9) brightness(0.6);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(212, 175, 98, 0.16), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(102, 59, 153, 0.24), transparent 28%),
+        radial-gradient(circle at 50% 90%, rgba(212, 175, 98, 0.09), transparent 35%);
+      pointer-events: none;
+      z-index: -1;
+      animation: pulseAura 14s ease-in-out infinite;
+    }
+
+    @keyframes pulseAura {
+      0%, 100% { opacity: 0.75; }
+      50% { opacity: 1; }
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 4rem 0 3rem;
+    }
+
+    .hero-content {
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      border-radius: 22px;
+      padding: 3.2rem 2rem;
+      max-width: 840px;
+      animation: fadeRise 1.25s ease;
+    }
+
+    .pre-title {
+      color: var(--gold-soft);
+      letter-spacing: 0.25rem;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 4rem);
+      color: var(--gold);
+      line-height: 1.12;
+      font-weight: 500;
+      text-shadow: 0 0 22px rgba(212, 175, 98, 0.24);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-subtext {
+      font-size: clamp(1rem, 2.2vw, 1.4rem);
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 0.85rem 1.7rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.04rem;
+      transition: all 0.28s ease;
+      box-shadow: inset 0 0 0 rgba(212, 175, 98, 0);
+      background: rgba(212, 175, 98, 0.05);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: inset 0 0 0 1.7rem rgba(212, 175, 98, 0.12), 0 7px 22px rgba(0, 0, 0, 0.32);
+      color: var(--gold-soft);
+    }
+
+    .btn-primary {
+      background: linear-gradient(120deg, rgba(212, 175, 98, 0.2), rgba(212, 175, 98, 0.08));
+    }
+
+    .section {
+      padding: 4.8rem 0;
+    }
+
+    .section-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.35);
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .section-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    h2 {
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      font-size: clamp(1.45rem, 3.3vw, 2.2rem);
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+
+    .services-grid {
+      margin-top: 1.35rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .service-item {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.2rem;
+      background: rgba(42, 24, 64, 0.35);
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+
+    .service-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(212, 175, 98, 0.68);
+    }
+
+    .service-item h3 {
+      color: var(--gold-soft);
+      margin-bottom: 0.55rem;
+      font-size: 1.16rem;
+      font-weight: 500;
+    }
+
+    .ebook {
+      text-align: center;
+    }
+
+    .ebook .btn {
+      margin-top: 1.3rem;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: none;
+      display: grid;
+      place-items: center;
+      background: var(--whatsapp);
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.5rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.38);
+      z-index: 20;
+      transition: transform 0.22s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.08);
+    }
+
+    @keyframes fadeRise {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-content,
+      .section-card {
+        padding: 1.5rem;
+      }
+
+      .section {
+        padding: 3rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="pre-title">Grimório da Maga – Portal Vivo</div>
+          <h1>Você não chegou aqui por acaso.</h1>
+          <p class="hero-subtext">Existe algo te guiando até aqui. Descubra.</p>
+          <div class="hero-buttons">
+            <a href="#servicos" class="btn btn-primary">Fazer Leitura</a>
+            <a href="#sobre" class="btn">Acessar Grimório</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="section">
+      <div class="container">
+        <article class="section-card reveal">
+          <h2>Sobre</h2>
+          <p>
+            Entre véus sutis e sinais silenciosos, o Grimório da Maga nasce como um espaço de conexão,
+            escuta e transformação. Cada palavra, símbolo e leitura é um convite para lembrar quem você é
+            além do ruído do mundo. Aqui, o invisível se torna linguagem — e sua própria alma reconhece o caminho.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="servicos" class="section">
+      <div class="container">
+        <article class="section-card reveal">
+          <h2>Serviços</h2>
+          <div class="services-grid">
+            <div class="service-item">
+              <h3>Tarot</h3>
+              <p>
+                Leituras intuitivas para iluminar decisões, ciclos e mensagens que pedem atenção no presente.
+              </p>
+            </div>
+            <div class="service-item">
+              <h3>Numerologia</h3>
+              <p>
+                Interpretação dos números que acompanham sua jornada, revelando potenciais, desafios e direção.
+              </p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="ebook" class="section">
+      <div class="container">
+        <article class="section-card reveal ebook">
+          <h2>eBook Ritual de Abertura</h2>
+          <p>
+            Em breve: um material exclusivo para aprofundar sua prática espiritual e fortalecer sua conexão com a intuição.
+          </p>
+          <a href="#" class="btn btn-primary">Quero ser avisada</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <a
+    class="whatsapp-float"
+    href="https://wa.me/5500000000000"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar no WhatsApp"
+    title="Fale no WhatsApp"
+  >
+    ✦
+  </a>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+
+    revealElements.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
