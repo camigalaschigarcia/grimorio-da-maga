@@ -215,25 +215,28 @@
 
     .whatsapp-float {
       position: fixed;
-      right: 1rem;
-      bottom: 1rem;
-      width: 58px;
-      height: 58px;
+      right: 1.2rem;
+      bottom: 1.2rem;
+      width: 62px;
+      height: 62px;
       border-radius: 50%;
-      border: none;
+      border: 1px solid rgba(212, 175, 98, 0.45);
       display: grid;
       place-items: center;
-      background: var(--whatsapp);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.36), transparent 45%),
+        linear-gradient(145deg, #28e06d, #1fa855);
       color: #fff;
       text-decoration: none;
-      font-size: 1.5rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.38);
+      font-size: 1.85rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.38), 0 0 18px rgba(37, 211, 102, 0.32);
       z-index: 20;
-      transition: transform 0.22s ease;
+      transition: transform 0.22s ease, box-shadow 0.22s ease;
     }
 
     .whatsapp-float:hover {
       transform: scale(1.08);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.45), 0 0 25px rgba(37, 211, 102, 0.4);
     }
 
     @keyframes fadeRise {
@@ -268,7 +271,14 @@
           <h1>Você não chegou aqui por acaso.</h1>
           <p class="hero-subtext">Existe algo te guiando até aqui. Descubra.</p>
           <div class="hero-buttons">
-            <a href="#servicos" class="btn btn-primary">Fazer Leitura</a>
+            <a
+              href="https://wa.me/5551998148636?text=Olá,%20vim%20pelo%20Grimório%20da%20Maga%20e%20quero%20uma%20leitura"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+            >
+              Fazer Leitura
+            </a>
             <a href="#sobre" class="btn">Acessar Grimório</a>
           </div>
         </div>
@@ -325,13 +335,13 @@
 
   <a
     class="whatsapp-float"
-    href="https://wa.me/5500000000000"
+    href="https://wa.me/5551998148636?text=Olá,%20vim%20pelo%20Grimório%20da%20Maga%20e%20quero%20uma%20leitura"
     target="_blank"
     rel="noopener noreferrer"
     aria-label="Falar no WhatsApp"
     title="Fale no WhatsApp"
   >
-    ✦
+    ☽
   </a>
 
   <script>
