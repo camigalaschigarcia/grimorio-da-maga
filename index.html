@@ -13,7 +13,7 @@
       --gold-soft: #f1ddb0;
       --text: #f7f2ff;
       --muted: #c9bddc;
-      --card: rgba(10, 7, 18, 0.72);
+      --card: rgba(10, 7, 18, 0.52);
       --border: rgba(212, 175, 98, 0.32);
       --whatsapp: #25d366;
     }
@@ -70,6 +70,7 @@
     }
 
     .hero {
+      height: 100vh;
       min-height: 100vh;
       display: grid;
       place-items: center;
@@ -79,7 +80,7 @@
       isolation: isolate;
       overflow: hidden;
       background-image:
-        linear-gradient(rgba(5, 4, 9, 0.74), rgba(5, 4, 9, 0.74)),
+        linear-gradient(rgba(5, 4, 9, 0.42), rgba(5, 4, 9, 0.42)),
         url("capa.site.png");
       background-size: cover;
       background-position: center;
@@ -101,13 +102,13 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(160deg, rgba(3, 2, 6, 0.72) 0%, rgba(8, 5, 14, 0.82) 42%, rgba(2, 2, 4, 0.9) 100%);
+      background: linear-gradient(160deg, rgba(3, 2, 6, 0.34) 0%, rgba(8, 5, 14, 0.46) 42%, rgba(2, 2, 4, 0.58) 100%);
       animation: heroGlow 10s ease-in-out infinite;
       z-index: -1;
     }
 
     .hero-content {
-      background: var(--card);
+      background: linear-gradient(160deg, rgba(10, 7, 18, 0.56), rgba(19, 12, 30, 0.44));
       border: 1px solid var(--border);
       box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
       backdrop-filter: blur(5px);
