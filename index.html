@@ -146,15 +146,32 @@
     }
 
     .hero-content {
+      position: relative;
       background: rgba(0, 0, 0, 0.3);
       border: 0.8px solid rgba(212, 175, 98, 0.24);
-      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      box-shadow:
+        0 20px 55px rgba(0, 0, 0, 0.42),
+        0 0 24px rgba(212, 175, 98, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       border-radius: 30px;
       padding: 3.7rem 2.5rem;
       max-width: 840px;
       animation: fadeRise 1.25s ease, panelGlow 8s ease-in-out infinite;
+    }
+
+    .hero-content::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid rgba(241, 221, 176, 0.22);
+      box-shadow:
+        0 0 18px rgba(212, 175, 98, 0.2),
+        0 0 38px rgba(212, 175, 98, 0.1);
+      pointer-events: none;
+      opacity: 0.72;
     }
 
     .pre-title {
@@ -166,6 +183,8 @@
     }
 
     h1 {
+      position: relative;
+      z-index: 0;
       font-size: clamp(2.45rem, 5.6vw, 4.5rem);
       color: var(--gold);
       line-height: 1.18;
@@ -175,6 +194,20 @@
         0 0 22px rgba(212, 175, 98, 0.28),
         0 10px 26px rgba(0, 0, 0, 0.34);
       margin-bottom: 1.75rem;
+    }
+
+    h1::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 54%;
+      width: min(92%, 740px);
+      height: 1.25em;
+      transform: translate(-50%, -50%);
+      background: radial-gradient(ellipse at center, rgba(212, 175, 98, 0.24) 0%, rgba(212, 175, 98, 0.06) 45%, transparent 72%);
+      filter: blur(14px);
+      z-index: -1;
+      pointer-events: none;
     }
 
     .glow-word {
