@@ -65,17 +65,17 @@
     }
 
     .container {
-      width: min(1120px, 92%);
+      width: min(1040px, 90%);
       margin: 0 auto;
     }
 
     .hero {
-      height: 100vh;
-      min-height: 100vh;
+      min-height: 94vh;
       display: grid;
       place-items: center;
+      align-content: center;
       text-align: center;
-      padding: 4rem 0 3rem;
+      padding: clamp(4.5rem, 9vh, 6.5rem) 0;
       position: relative;
       isolation: isolate;
       overflow: hidden;
@@ -147,17 +147,18 @@
 
     .hero-content {
       position: relative;
-      background: rgba(0, 0, 0, 0.3);
-      border: 0.8px solid rgba(212, 175, 98, 0.24);
+      background: rgba(6, 4, 12, 0.26);
+      border: 0.8px solid rgba(212, 175, 98, 0.2);
       box-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.42),
-        0 0 24px rgba(212, 175, 98, 0.14),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 30px;
-      padding: 3.7rem 2.5rem;
-      max-width: 840px;
+        0 14px 40px rgba(0, 0, 0, 0.32),
+        0 0 16px rgba(212, 175, 98, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 26px;
+      padding: clamp(2.4rem, 5vw, 3.05rem) clamp(1.5rem, 3.5vw, 2.05rem);
+      max-width: 700px;
+      margin: 0 auto;
       animation: fadeRise 1.25s ease, panelGlow 8s ease-in-out infinite;
     }
 
@@ -166,12 +167,12 @@
       position: absolute;
       inset: -1px;
       border-radius: inherit;
-      border: 1px solid rgba(241, 221, 176, 0.22);
+      border: 1px solid rgba(241, 221, 176, 0.16);
       box-shadow:
-        0 0 18px rgba(212, 175, 98, 0.2),
-        0 0 38px rgba(212, 175, 98, 0.1);
+        0 0 12px rgba(212, 175, 98, 0.12),
+        0 0 28px rgba(212, 175, 98, 0.06);
       pointer-events: none;
-      opacity: 0.72;
+      opacity: 0.6;
     }
 
     .pre-title {
