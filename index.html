@@ -87,6 +87,42 @@
       background-repeat: no-repeat;
     }
 
+    .hero .mystic-particles {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.32;
+      mix-blend-mode: screen;
+      animation: particlesDrift 26s linear infinite;
+    }
+
+    .hero .mystic-particles::before,
+    .hero .mystic-particles::after {
+      content: "";
+      position: absolute;
+      inset: -8%;
+      background-repeat: repeat;
+    }
+
+    .hero .mystic-particles::before {
+      background-image:
+        radial-gradient(circle, rgba(241, 221, 176, 0.52) 0 1px, transparent 1.8px),
+        radial-gradient(circle, rgba(202, 178, 230, 0.34) 0 1px, transparent 2px);
+      background-size: 180px 180px, 220px 220px;
+      background-position: 0 0, 80px 120px;
+      animation: particlesFloatSlow 34s linear infinite;
+    }
+
+    .hero .mystic-particles::after {
+      background-image:
+        radial-gradient(circle, rgba(245, 232, 199, 0.42) 0 1.2px, transparent 2px);
+      background-size: 260px 260px;
+      background-position: 30px 40px;
+      filter: blur(0.2px);
+      animation: particlesFloatAlt 40s linear infinite;
+    }
+
     .hero::before {
       content: "";
       position: absolute;
@@ -102,7 +138,9 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(160deg, rgba(3, 2, 6, 0.34) 0%, rgba(8, 5, 14, 0.46) 42%, rgba(2, 2, 4, 0.58) 100%);
+      background:
+        radial-gradient(circle at 50% 42%, rgba(212, 175, 98, 0.14), transparent 46%),
+        linear-gradient(160deg, rgba(3, 2, 6, 0.34) 0%, rgba(8, 5, 14, 0.46) 42%, rgba(2, 2, 4, 0.58) 100%);
       animation: heroGlow 10s ease-in-out infinite;
       z-index: -1;
     }
@@ -316,10 +354,45 @@
 
     @keyframes heroGlow {
       0%, 100% {
-        opacity: 0.88;
+        opacity: 0.84;
+        filter: brightness(1) saturate(1);
       }
       50% {
-        opacity: 1;
+        opacity: 0.98;
+        filter: brightness(1.05) saturate(1.08);
+      }
+    }
+
+    @keyframes particlesDrift {
+      0%, 100% {
+        transform: translate3d(0, 0, 0);
+      }
+      50% {
+        transform: translate3d(0, -10px, 0);
+      }
+    }
+
+    @keyframes particlesFloatSlow {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      50% {
+        transform: translate3d(-12px, -18px, 0);
+      }
+      100% {
+        transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes particlesFloatAlt {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      50% {
+        transform: translate3d(14px, -12px, 0);
+      }
+      100% {
+        transform: translate3d(0, 0, 0);
       }
     }
 
@@ -338,6 +411,7 @@
 <body>
   <main>
     <section class="hero">
+      <div class="mystic-particles" aria-hidden="true"></div>
       <div class="container">
         <div class="hero-content">
           <div class="pre-title">Grimório da Maga – Portal Vivo</div>
