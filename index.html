@@ -174,10 +174,25 @@
       margin-bottom: 1.25rem;
     }
 
+    .glow-word {
+      display: inline-block;
+      color: #f8e9c9;
+      text-shadow:
+        0 0 8px rgba(241, 221, 176, 0.52),
+        0 0 16px rgba(212, 175, 98, 0.4);
+      animation: mysticTwinkle 4.2s ease-in-out infinite;
+    }
+
+    @keyframes mysticTwinkle {
+      0%, 100% { filter: brightness(1); opacity: 0.94; }
+      50% { filter: brightness(1.14); opacity: 1; }
+    }
+
     .hero-subtext {
       font-size: clamp(1rem, 2.2vw, 1.4rem);
       color: var(--muted);
       margin-bottom: 2rem;
+      line-height: 1.5;
     }
 
     .hero-buttons {
@@ -415,8 +430,8 @@
       <div class="container">
         <div class="hero-content">
           <div class="pre-title">Grimório da Maga – Portal Vivo</div>
-          <h1>Você não chegou aqui por acaso.</h1>
-          <p class="hero-subtext">Existe algo te guiando até aqui. Descubra.</p>
+          <h1>Se você chegou até aqui… não foi por <span class="glow-word">acaso</span>.</h1>
+          <p class="hero-subtext">Existe algo tentando te mostrar um <span class="glow-word">caminho</span>. Você está <span class="glow-word">pronta</span> para ver?</p>
           <div class="hero-buttons">
             <a
               href="https://wa.me/5551998148636?text=Olá,%20vim%20pelo%20Grimório%20da%20Maga%20e%20quero%20uma%20leitura"
