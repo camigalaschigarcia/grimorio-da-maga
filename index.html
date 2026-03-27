@@ -397,6 +397,70 @@
       font-weight: 500;
     }
 
+    .reading-choice .section-card {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .reading-choice .section-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(212, 175, 98, 0.12), transparent 44%),
+        radial-gradient(circle at 85% 22%, rgba(126, 86, 185, 0.2), transparent 40%);
+      pointer-events: none;
+      opacity: 0.85;
+    }
+
+    .choice-grid {
+      margin-top: 1.4rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .choice-card {
+      background: rgba(24, 14, 38, 0.5);
+      border: 1px solid rgba(212, 175, 98, 0.42);
+      border-radius: 18px;
+      padding: 1.35rem;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow:
+        0 10px 26px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 245, 226, 0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    }
+
+    .choice-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(241, 221, 176, 0.74);
+      box-shadow:
+        0 14px 30px rgba(0, 0, 0, 0.42),
+        0 0 20px rgba(212, 175, 98, 0.2),
+        inset 0 1px 0 rgba(255, 245, 226, 0.14);
+    }
+
+    .choice-card h3 {
+      color: var(--gold-soft);
+      margin-bottom: 0.62rem;
+      font-size: 1.22rem;
+      font-weight: 500;
+    }
+
+    .choice-card p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .choice-card .btn {
+      width: 100%;
+      text-align: center;
+    }
+
     .ebook {
       text-align: center;
     }
@@ -542,6 +606,40 @@
             <a href="#sobre" class="btn btn-secondary">Acessar Grimório</a>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section id="escolha-leitura" class="section reading-choice">
+      <div class="container">
+        <article class="section-card reveal">
+          <h2>Escolha sua leitura</h2>
+          <div class="choice-grid">
+            <div class="choice-card">
+              <h3>Leitura de Tarot</h3>
+              <p>Uma leitura intuitiva para trazer clareza, direcionamento e respostas.</p>
+              <a
+                href="https://wa.me/5551998148636?text=Olá,%20vim%20pelo%20Grimório%20da%20Maga%20e%20quero%20minha%20leitura%20de%20Tarot"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                Quero minha leitura
+              </a>
+            </div>
+            <div class="choice-card">
+              <h3>Mapa Numerológico</h3>
+              <p>Descubra os códigos do seu destino e propósito de vida.</p>
+              <a
+                href="https://wa.me/5551998148636?text=Olá,%20vim%20pelo%20Grimório%20da%20Maga%20e%20quero%20meu%20mapa%20numerol%C3%B3gico"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn-primary"
+              >
+                Quero meu mapa
+              </a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
