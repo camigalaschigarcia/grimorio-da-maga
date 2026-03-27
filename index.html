@@ -469,6 +469,89 @@
       margin-top: 1.3rem;
     }
 
+    .ebook-premium .section-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(241, 221, 176, 0.66);
+      background:
+        linear-gradient(150deg, rgba(45, 26, 68, 0.62), rgba(12, 8, 20, 0.78)),
+        radial-gradient(circle at top left, rgba(212, 175, 98, 0.24), transparent 42%);
+      box-shadow:
+        0 0 28px rgba(212, 175, 98, 0.2),
+        0 16px 34px rgba(0, 0, 0, 0.48),
+        inset 0 0 0 1px rgba(255, 243, 212, 0.08);
+    }
+
+    .ebook-premium .section-card::before {
+      content: "";
+      position: absolute;
+      inset: -20% -10%;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(241, 221, 176, 0.18), transparent 36%),
+        radial-gradient(circle at 80% 70%, rgba(130, 88, 194, 0.2), transparent 34%);
+      filter: blur(2px);
+      animation: premiumShimmer 11s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .ebook-premium-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ebook-tag {
+      display: inline-block;
+      margin-bottom: 0.8rem;
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid rgba(241, 221, 176, 0.5);
+      background: rgba(212, 175, 98, 0.16);
+      color: #f6e4bf;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .ebook-subtitle {
+      color: #ede2ff;
+      font-style: italic;
+      margin-bottom: 1rem;
+      font-size: 1.08rem;
+    }
+
+    .ebook-benefits {
+      margin: 1.35rem 0 0;
+      padding-left: 1.2rem;
+      display: grid;
+      gap: 0.6rem;
+      text-align: left;
+      color: #efe4ff;
+    }
+
+    .ebook-benefits li::marker {
+      color: var(--gold-soft);
+    }
+
+    .btn-premium {
+      margin-top: 1.5rem;
+      color: #fff5dd;
+      border-color: rgba(241, 221, 176, 0.95);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 244, 210, 0.34), transparent 45%),
+        linear-gradient(128deg, #8e6423 0%, #c08a33 45%, #f0c573 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 238, 197, 0.4),
+        0 0 20px rgba(212, 175, 98, 0.48),
+        0 14px 30px rgba(0, 0, 0, 0.42);
+    }
+
+    .btn-premium:hover {
+      box-shadow:
+        inset 0 0 0 2rem rgba(255, 221, 142, 0.18),
+        0 0 34px rgba(241, 205, 131, 0.75),
+        0 18px 34px rgba(0, 0, 0, 0.5);
+    }
+
     .payment-info p {
       max-width: 62ch;
     }
@@ -581,6 +664,17 @@
       }
       100% {
         transform: translate3d(0, 0, 0);
+      }
+    }
+
+    @keyframes premiumShimmer {
+      0%, 100% {
+        opacity: 0.72;
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        opacity: 1;
+        transform: translate3d(0, -8px, 0) scale(1.03);
       }
     }
 
@@ -710,6 +804,36 @@
       </div>
     </section>
 
+    <section id="ebook-grimorio" class="section ebook-premium">
+      <div class="container">
+        <article class="section-card reveal">
+          <div class="ebook-premium-content">
+            <span class="ebook-tag">Produto Premium</span>
+            <h2>Grimório da Maga</h2>
+            <p class="ebook-subtitle">Um portal de autoconhecimento, energia e despertar.</p>
+            <p>
+              Este não é apenas um eBook. É um guia para quem sente que existe algo além do que os olhos podem ver.
+              Aqui você encontrará práticas, reflexões e conhecimentos para despertar sua consciência, alinhar sua energia e compreender melhor sua própria jornada.
+            </p>
+            <ul class="ebook-benefits">
+              <li>Clareza emocional e espiritual</li>
+              <li>Conexão com sua intuição</li>
+              <li>Entendimento dos sinais do universo</li>
+              <li>Práticas para transformação interior</li>
+            </ul>
+            <a
+              href="https://wa.me/5551998148636?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20o%20eBook%20Grim%C3%B3rio%20da%20Maga."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-premium"
+            >
+              Quero acessar o Grimório
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <section id="pagamento" class="section">
       <div class="container">
         <article class="section-card reveal payment-info">
@@ -722,17 +846,6 @@
       </div>
     </section>
 
-    <section id="ebook" class="section">
-      <div class="container">
-        <article class="section-card reveal ebook">
-          <h2>eBook Ritual de Abertura</h2>
-          <p>
-            Em breve: um material exclusivo para aprofundar sua prática espiritual e fortalecer sua conexão com a intuição.
-          </p>
-          <a href="#" class="btn btn-primary">Quero ser avisada</a>
-        </article>
-      </div>
-    </section>
   </main>
 
   <a
