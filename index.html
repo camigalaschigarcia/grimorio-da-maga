@@ -461,14 +461,6 @@
       text-align: center;
     }
 
-    .ebook {
-      text-align: center;
-    }
-
-    .ebook .btn {
-      margin-top: 1.3rem;
-    }
-
     .ebook-premium .section-card {
       position: relative;
       overflow: hidden;
@@ -499,6 +491,116 @@
       z-index: 1;
     }
 
+    .ebooks-header {
+      margin-bottom: 1.7rem;
+      text-align: center;
+    }
+
+    .ebooks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .ebook-card {
+      position: relative;
+      border-radius: 18px;
+      padding: 1.4rem;
+      border: 1px solid rgba(241, 221, 176, 0.38);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow:
+        0 12px 28px rgba(0, 0, 0, 0.42),
+        inset 0 1px 0 rgba(255, 241, 211, 0.08);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      overflow: hidden;
+    }
+
+    .ebook-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.95;
+    }
+
+    .ebook-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(241, 221, 176, 0.78);
+      box-shadow:
+        0 18px 34px rgba(0, 0, 0, 0.48),
+        0 0 22px rgba(212, 175, 98, 0.24),
+        inset 0 1px 0 rgba(255, 241, 211, 0.15);
+    }
+
+    .ebook-card h3,
+    .ebook-card p,
+    .ebook-card .ebook-subtitle {
+      position: relative;
+      z-index: 1;
+    }
+
+    .ebook-card h3 {
+      color: #f8e8c7;
+      font-size: 1.3rem;
+      margin-bottom: 0.45rem;
+      font-weight: 500;
+    }
+
+    .ebook-card p {
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+      color: #e6daf5;
+    }
+
+    .ebook-card .btn {
+      width: 100%;
+      text-align: center;
+      margin-top: 0.2rem;
+    }
+
+    .ebook-card.spiritual {
+      background: linear-gradient(145deg, rgba(44, 24, 70, 0.68), rgba(14, 9, 24, 0.82));
+    }
+
+    .ebook-card.spiritual::before {
+      background:
+        radial-gradient(circle at 15% 20%, rgba(212, 175, 98, 0.24), transparent 40%),
+        radial-gradient(circle at 80% 80%, rgba(134, 91, 201, 0.24), transparent 38%);
+    }
+
+    .ebook-card.soft {
+      background: linear-gradient(145deg, rgba(58, 31, 73, 0.64), rgba(16, 11, 24, 0.82));
+      border-color: rgba(236, 195, 239, 0.38);
+    }
+
+    .ebook-card.soft::before {
+      background:
+        radial-gradient(circle at 20% 18%, rgba(246, 193, 228, 0.22), transparent 42%),
+        radial-gradient(circle at 82% 78%, rgba(145, 112, 190, 0.25), transparent 35%);
+    }
+
+    .btn-soft {
+      color: #ffe9fb;
+      border-color: rgba(246, 206, 240, 0.85);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.24), transparent 45%),
+        linear-gradient(128deg, #7f4e85 0%, #aa63a8 48%, #d393c9 100%);
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 225, 247, 0.35),
+        0 0 16px rgba(213, 131, 200, 0.42),
+        0 12px 26px rgba(0, 0, 0, 0.42);
+    }
+
+    .btn-soft:hover {
+      box-shadow:
+        inset 0 0 0 2rem rgba(255, 224, 248, 0.14),
+        0 0 28px rgba(231, 166, 222, 0.6),
+        0 16px 30px rgba(0, 0, 0, 0.48);
+    }
+
     .ebook-tag {
       display: inline-block;
       margin-bottom: 0.8rem;
@@ -517,19 +619,6 @@
       font-style: italic;
       margin-bottom: 1rem;
       font-size: 1.08rem;
-    }
-
-    .ebook-benefits {
-      margin: 1.35rem 0 0;
-      padding-left: 1.2rem;
-      display: grid;
-      gap: 0.6rem;
-      text-align: left;
-      color: #efe4ff;
-    }
-
-    .ebook-benefits li::marker {
-      color: var(--gold-soft);
     }
 
     .btn-premium {
@@ -808,27 +897,38 @@
       <div class="container">
         <article class="section-card reveal">
           <div class="ebook-premium-content">
-            <span class="ebook-tag">Produto Premium</span>
-            <h2>Grimório da Maga</h2>
-            <p class="ebook-subtitle">Um portal de autoconhecimento, energia e despertar.</p>
-            <p>
-              Este não é apenas um eBook. É um guia para quem sente que existe algo além do que os olhos podem ver.
-              Aqui você encontrará práticas, reflexões e conhecimentos para despertar sua consciência, alinhar sua energia e compreender melhor sua própria jornada.
-            </p>
-            <ul class="ebook-benefits">
-              <li>Clareza emocional e espiritual</li>
-              <li>Conexão com sua intuição</li>
-              <li>Entendimento dos sinais do universo</li>
-              <li>Práticas para transformação interior</li>
-            </ul>
-            <a
-              href="https://wa.me/5551998148636?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20o%20eBook%20Grim%C3%B3rio%20da%20Maga."
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn btn-premium"
-            >
-              Quero acessar o Grimório
-            </a>
+            <div class="ebooks-header">
+              <span class="ebook-tag">Produto Premium</span>
+              <h2>Seus portais de transformação</h2>
+            </div>
+            <div class="ebooks-grid">
+              <div class="ebook-card spiritual">
+                <h3>Grimório da Maga</h3>
+                <p class="ebook-subtitle">Desperte sua consciência</p>
+                <p>Um guia profundo de autoconhecimento, energia e despertar espiritual.</p>
+                <a
+                  href="https://wa.me/5551998148636?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20o%20eBook%20Grim%C3%B3rio%20da%20Maga."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-premium"
+                >
+                  Quero acessar o Grimório
+                </a>
+              </div>
+              <div class="ebook-card soft">
+                <h3>Entre Ronrons e Magia</h3>
+                <p class="ebook-subtitle">A magia está nos detalhes</p>
+                <p>Um eBook sensível e transformador sobre conexão, intuição e a sabedoria presente nos pequenos momentos — guiado pela energia dos gatos.</p>
+                <a
+                  href="https://wa.me/5551998148636?text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20quero%20o%20eBook%20Entre%20Ronrons%20e%20Magia."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-soft"
+                >
+                  Quero acessar Ronrons e Magia
+                </a>
+              </div>
+            </div>
           </div>
         </article>
       </div>
